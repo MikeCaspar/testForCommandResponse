@@ -25,7 +25,7 @@ install:
 
 script:
 
-  - ./sample-test.sh
+  - ./test.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

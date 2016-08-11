@@ -8,6 +8,10 @@
 
     - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: false }
 
+    # same test.. .should still not fail
+
+    - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: true }
+
     - { role: testForCommandResponse, command: "nano --version", expected: "GNU Nano", debug: true, immediate_exit_on_fail: false }
 
 
