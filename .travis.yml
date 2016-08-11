@@ -24,12 +24,8 @@ install:
   - echo -e '[defaults]\nroles_path = ../\nhostfile = ./tests/inventory' > ansible.cfg
 
 script:
-  - ansible-playbook --syntax-check tests/role.yml
 
-  - ansible-playbook tests/role.yml > log.txt
-
-  - grep '.*TEST_PASSED:' log.txt > logpass.txt
-  - grep '.*TEST_FAILED:' log.txt > logfail.txt
+  - ./sample-test.sh
 
 # figure out how to check for correct number of passes and fails
 # then return 0 or 1
