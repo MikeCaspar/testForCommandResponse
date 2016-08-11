@@ -6,23 +6,12 @@
 
 # this will end up with 3 passes and two fails (need to know this for travis.yml
 
-# passes
 
-    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: true }
-
-    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: false }
-
-    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: false, immediate_exit_on_fail: true }
-
-# fails
-
-    - {role: testForCommandResponse, command: "cat /etc/hostsx", expected: "localhost", debug: true, immediate_exit_on_fail: false }
-
-    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhostx", debug: true, immediate_exit_on_fail: false }
-
+    - { role: testForCommandResponse, command: "git --version", expected: "git version", debug: true, immediate_exit_on_fail: false }
+    
     - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: false }
 
-    - { role: testForFolder, path: "/etc", expected: present }
-    - { role: testForTimezone, timezoneCity: "America/Toronto", debug: true }
+
+
 
 
