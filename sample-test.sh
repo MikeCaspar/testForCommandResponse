@@ -15,3 +15,5 @@ grep TEST_FAILED tests/log.txt
 echo Serious Failures...
 
 grep fatal tests/log.txt
+
+exit 0
