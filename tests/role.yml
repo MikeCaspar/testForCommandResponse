@@ -6,9 +6,6 @@
 
 # this will end up with 3 passes and two fails (need to know this for travis.yml
 
-
-    - { role: testForCommandResponse, command: "git --version", expected: "git version", debug: true, immediate_exit_on_fail: false }
-    
     - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: false }
 
 

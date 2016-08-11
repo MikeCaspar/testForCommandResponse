@@ -5,8 +5,11 @@ testCommandResponse (experimental role)
 
 ## This role is not production ready but is working !
 
-**Note. Although confirmed for Ubuntu only at this time, this uses the ansible command: module. Therefore, any distro or server should work.**
-**Should you try on another OS, please let me know so i can add to supported platforms. I expect all should work.**
+## This is a backup/experimentation role.
+**It is preferred that individual roles be created for specific purposes but this will allow you to issue system commands quickly and effectively if you understand how to query settings using command: for your environment**
+
+**Since this uses command:, it should work on any environment command: supports (not tested)**
+**Should you confirm working on your environment, please let me know**
 
 
 [![Build Status](https://travis-ci.org/MikeCaspar/testCommandResponse.svg?branch=master)](https://travis-ci.org/MikeCaspar/testCommandResponse)

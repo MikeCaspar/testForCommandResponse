@@ -17,7 +17,7 @@ matrix:
 
 before_install:
  - sudo apt-get update -qq
- - sudo apt-get install -qq python-apt python-pycurl
+ - sudo apt-get install -qq python-apt python-pycurl nano
 
 install:
   - pip install ansible
