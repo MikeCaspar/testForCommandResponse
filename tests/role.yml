@@ -8,15 +8,15 @@
 
 # passes
 
-    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: true }
+    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: true }
 
-    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: false }
+    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: false }
 
-    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: false, immediate_exit_on_fail: true }
+    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: false, immediate_exit_on_fail: true }
 
 # fails
 
-    - {role: testCommandResponse, command: "cat /etc/hostsx", expected: "localhost", debug: true, immediate_exit_on_fail: false }
+    - {role: testForCommandResponse, command: "cat /etc/hostsx", expected: "localhost", debug: true, immediate_exit_on_fail: false }
 
-    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhostx", debug: false, immediate_exit_on_fail: false }
+    - {role: testForCommandResponse, command: "cat /etc/hosts", expected: "localhostx", debug: false, immediate_exit_on_fail: false }
 
