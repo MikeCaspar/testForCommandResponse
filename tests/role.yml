@@ -4,10 +4,11 @@
 
   roles:
 
-# this will end up with 3 passes and two fails (need to know this for travis.yml
+# by forcing one pass and one failure, we can confirm pass and fail working
 
     - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: false }
 
+    - { role: testForCommandResponse, command: "nano --version", expected: "GNU Nano", debug: true, immediate_exit_on_fail: false }
 
 
 
