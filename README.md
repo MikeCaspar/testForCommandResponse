@@ -3,7 +3,7 @@ testCommandResponse
 
 testCommandResponse (experimental role)
 
-## This role is not ready for use !
+## This role is not production ready but is working !
 
 **Note. Although confirmed for Ubuntu only at this time, this uses the ansible command: module. Therefore, any distro or server should work.**
 **Should you try on another OS, please let me know so i can add to supported platforms. I expect all should work.**
