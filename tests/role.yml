@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  remote_user: root
+
+  roles:
+
+# this will end up with 3 passes and two fails (need to know this for travis.yml
+
+# passes
+
+    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: true }
+
+    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: true, immediate_exit_on_fail: false }
+
+    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhost", debug: false, immediate_exit_on_fail: true }
+
+# fails
+
+    - {role: testCommandResponse, command: "cat /etc/hostsx", expected: "localhost", debug: true, immediate_exit_on_fail: false }
+
+    - {role: testCommandResponse, command: "cat /etc/hosts", expected: "localhostx", debug: false, immediate_exit_on_fail: false }
+

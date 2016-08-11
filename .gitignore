@@ -1,0 +1,6 @@
+.idea/
+.galaxy_install_info
+log.txt
+logfail.txt
+logpass.txt
+*.retry

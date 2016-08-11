@@ -1,0 +1,54 @@
+---
+
+- set_fact:
+    testPassed: false
+
+# Do Not send commands that modify anything !
+- debug:
+    msg: "Send Command Received.. {{ command }}"
+  when: "{{debug==true}}"
+
+- name: "Send Test Command {{ command }}"
+  command: "{{ command}}"
+  register: result
+  ignore_errors: true
+
+- debug:
+    var: result
+  when: "{{debug==true}}"
+
+- name: set test to passed if the command returns the expected result
+  set_fact:
+      testPassed: true
+  when:
+    - "'{{expected}}' in result.stdout"
+
+- name: set test to failed if the command returns the expected result
+  set_fact:
+      testPassed: false
+  when:
+    - "'{{expected}}' not in result.stdout"
+
+- debug:
+    var: testPassed
+  when: "{{debug==true}}"
+
+
+- debug:
+    msg: "TEST_PASSED: with command {{ command }},  expected {{ expected }} "
+  when:
+    - testPassed == true
+
+# failed tests either debug a failed message or fail immediately (as requested by the calling _test playbook
+
+- debug:
+    msg: "TEST_FAILED: with command {{ command }},  expected {{ expected }}  "
+  when:
+    - testPassed == false
+
+- fail:
+    msg: "TEST_FAILED: with command {{ command }},  expected {{ expected }}  "
+  when:
+    - testPassed == false
+    - immediate_exit_on_fail == true
+

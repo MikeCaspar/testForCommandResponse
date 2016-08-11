@@ -1,0 +1,43 @@
+---
+
+language: python
+
+matrix:
+    include:
+        - os: linux
+          sudo: required
+          dist: trusty
+          python: 2.7
+          env: TOXENV=py27
+        - os: linux
+          dist: xenial
+          sudo: required
+          python: 2.7
+          env: TOXENV=py27
+
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq python-apt python-pycurl
+
+install:
+  - pip install ansible
+  - echo -e '[defaults]\nroles_path = ../\nhostfile = ./tests/inventory' > ansible.cfg
+
+script:
+  - ansible-playbook --syntax-check tests/role.yml
+
+  - ansible-playbook tests/role.yml > log.txt
+
+  - grep '.*TEST_PASSED:' log.txt > logpass.txt
+  - grep '.*TEST_FAILED:' log.txt > logfail.txt
+
+# figure out how to check for correct number of passes and fails
+# then return 0 or 1
+
+#  - grep -q '.*TEST FAILED:'
+#    && (echo 'Role test: pass' && exit 0)
+#    || (echo 'Role test: fail' && exit 1)
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+
