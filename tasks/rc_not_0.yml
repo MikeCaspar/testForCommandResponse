@@ -1,0 +1,5 @@
+---
+# this runs when the command results in rc=!0 (command executed with an error)
+
+- set_fact:
+    testPassed: false

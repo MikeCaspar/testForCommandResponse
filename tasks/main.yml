@@ -1,5 +1,8 @@
 ---
 
+- debug:
+    var: debug
+
 - set_fact:
     testPassed: false
 
@@ -13,26 +16,22 @@
   register: result
   ignore_errors: true
 
+
 - debug:
     var: result
   when: "{{debug==true}}"
 
-- name: set test to passed if the command returns the expected result
-  set_fact:
-      testPassed: true
-  when:
-    - "'{{expected}}' in result.stdout"
+- name: Include Command OK Logic if rc==0 (no command error)
+  include: rc0.yml
+  when: result.rc == 0
 
-- name: set test to failed if the command returns the expected result
-  set_fact:
-      testPassed: false
-  when:
-    - "'{{expected}}' not in result.stdout"
+- name: Include Command not OK rc!=0 (command error)
+  include: rc_not_0.yml
+  when: result.rc != 0
 
 - debug:
     var: testPassed
   when: "{{debug==true}}"
-
 
 - debug:
     msg: "TEST_PASSED: with command {{ command }},  expected {{ expected }} "

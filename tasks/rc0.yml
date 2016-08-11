@@ -1,0 +1,14 @@
+---
+# this runs when the command results in rc==0 (command executed without error)
+
+- name: set test to passed if the command returns the expected result
+  set_fact:
+      testPassed: true
+  when:
+    - "'{{expected}}' in result.stdout"
+
+- name: set test to failed if the command returns the expected result
+  set_fact:
+      testPassed: false
+  when:
+    - "'{{expected}}' not in result.stdout"
