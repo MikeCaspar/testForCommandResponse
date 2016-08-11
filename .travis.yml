@@ -27,13 +27,6 @@ script:
 
   - ./sample-test.sh
 
-# figure out how to check for correct number of passes and fails
-# then return 0 or 1
-
-#  - grep -q '.*TEST FAILED:'
-#    && (echo 'Role test: pass' && exit 0)
-#    || (echo 'Role test: fail' && exit 1)
-
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
 
