@@ -44,6 +44,7 @@
     msg: "TEST_FAILED: with command {{ command }},  expected {{ expected }}  "
   when:
     - testPassed == false
+    - immediate_exit_on_fail == false
 
 - fail:
     msg: "TEST_FAILED: with command {{ command }},  expected {{ expected }}  "

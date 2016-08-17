@@ -4,16 +4,18 @@
 
   roles:
 
-# by forcing one pass and one failure, we can confirm pass and fail working
+# passes
 
-    - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: false }
+  - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: false }
+  - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: true }
 
-    # same test.. .should still not fail
+# fails
 
-    - { role: testForCommandResponse, command: "nano --version", expected: "GNU nano", debug: true, immediate_exit_on_fail: true }
+  - { role: testForCommandResponse, command: "nano --version", expected: "GNU Nano", debug: true, immediate_exit_on_fail: false }
+  - { role: testForCommandResponse, command: "nano --version", expected: "GNU Nano", debug: true, immediate_exit_on_fail: false }
 
-    - { role: testForCommandResponse, command: "nano --version", expected: "GNU Nano", debug: true, immediate_exit_on_fail: false }
+# immediate exit fail
 
-
+  - { role: testForCommandResponse, command: "nano --version", expected: "GNU Nano", debug: true, immediate_exit_on_fail: true }
 
 

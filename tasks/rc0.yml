@@ -7,7 +7,7 @@
   when:
     - "'{{expected}}' in result.stdout"
 
-- name: set test to failed if the command returns the expected result
+- name: set test to failed if the command does not return the expected result
   set_fact:
       testPassed: false
   when:
