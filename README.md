@@ -3,13 +3,13 @@ testCommandResponse
 
 testCommandResponse (experimental role)
 
-This role may not be production ready but is working (pull requests accepted)
+**This role may not be production ready but is working**
 
 
-**It is preferred that individual roles be created for specific purposes but this will allow you to issue system commands quickly and effectively if you understand how to query settings using command: for your environment**
+It is preferred that individual roles be created for specific purposes but this will allow you to issue system commands quickly and effectively if you understand how to query settings using command: for your environment
 
-**Since this uses command:, it should work on any environment command: supports (not tested)**
-**Should you confirm working on your environment, please let me know**
+Since this uses command:, it should work on any environment command: supports (not tested)
+Should you confirm working on your environment, please let me know
 
 
 [![Build Status](https://travis-ci.org/MikeCaspar/testCommandResponse.svg?branch=master)](https://travis-ci.org/MikeCaspar/testCommandResponse)
